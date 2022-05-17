@@ -21,6 +21,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lambda1", "Lambda1\Lambda1.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Linq_Orders", "Linq_Orders\Linq_Orders.csproj", "{2745CA7B-7273-4256-A740-3821F79A0BC8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Linq_Orders_Customers", "Linq_Orders_Customers\Linq_Orders_Customers.csproj", "{EC1366C2-10CF-4AA3-936A-D2D82B73AF7B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Serialization", "Serialization\Serialization.csproj", "{02D491DF-3181-48FC-9A01-8B817492602F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +67,14 @@ Global
 		{2745CA7B-7273-4256-A740-3821F79A0BC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2745CA7B-7273-4256-A740-3821F79A0BC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2745CA7B-7273-4256-A740-3821F79A0BC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC1366C2-10CF-4AA3-936A-D2D82B73AF7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC1366C2-10CF-4AA3-936A-D2D82B73AF7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC1366C2-10CF-4AA3-936A-D2D82B73AF7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC1366C2-10CF-4AA3-936A-D2D82B73AF7B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02D491DF-3181-48FC-9A01-8B817492602F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02D491DF-3181-48FC-9A01-8B817492602F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02D491DF-3181-48FC-9A01-8B817492602F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02D491DF-3181-48FC-9A01-8B817492602F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
