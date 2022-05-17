@@ -14,13 +14,45 @@ namespace Linq_Orders
                 OrderList.Add(Order.Factory.CreateWithRandomData());
             }
 
-            foreach(var item in OrderList.TakeLast(5))
+            Console.WriteLine($"OrderCount: {OrderList.Count()}\nOrderValue: {OrderList.Sum(o=>o.Total):C2}");
+
+            Console.WriteLine("\nLargest 5 orders:");
+            OrderList.OrderByDescending(o => o.Total).Take(5).ToList().ForEach(o => Console.WriteLine(o));
+
+            Console.WriteLine($"\nOrder count with total < 1000: {OrderList.Count(o => o.Total < 1000)}");
+            Console.WriteLine($"Freightsum of orders with total < 1000: {OrderList.Where(o => o.Total < 1000).Sum(o => o.Freight)}:C2");
+
+            Console.WriteLine("\nCountries with orders");
+            foreach (var item in OrderList.Select(o => o.Country).Distinct())
             {
                 Console.WriteLine(item);
             }
 
-            Console.WriteLine(OrderList.First());
-            Console.WriteLine(OrderList.Last());
+            var lateDelCount = OrderList.Count(o =>
+            {
+                if (o.DeliveryDate == null) return false;
+
+                var days = (o.DeliveryDate.Value - o.OrderDate).Days;
+                return days > 15;
+            });
+            Console.WriteLine($"\nOrder count with delivery time > 15 days: {lateDelCount}");
+
+
+            var finnishOrders = OrderList.Where(o => o.Country == "Finland");
+            Console.WriteLine($"\nOrder count Finland: {finnishOrders.Count()}");
+            Console.WriteLine($"Ordersum Finland: {finnishOrders.Sum(o => o.Total)}:C2");
+
+            Console.WriteLine();
+            var groupedList = OrderList.GroupBy(o => o.Country, order => order);
+            foreach (var group in groupedList)
+            {
+                Console.WriteLine($"Orders {group.Key}:");
+                Console.WriteLine($"   Order count: {group.Count()}\n   Order value: {group.Sum(o => o.Total):C2}");
+            }
+
+            
+            var avgDays = OrderList.Where(o=> o.DeliveryDate.HasValue).Average(o => (o.DeliveryDate.Value - o.OrderDate).Days);
+            Console.WriteLine($"\nAverage delivery time: {avgDays}");
         }
     }
 }
@@ -29,6 +61,7 @@ namespace Linq_Orders
 //2. Skriv ut en lista på alla länder som det kommit ordrar från. Varje land ska skrivas ut bara en gång
 //3. Skriv ut antal ordrar där leverans skett mer an 15 dagar efter orderdatum
 //4. Antalet ordrar och värdet av alla ordrar i Finland
+
 //5. Utmaning: Använd GroupBy för att lista land, antalet ordrar och värdet av ordrarna per land
 //6. Utmaning: Använd GroupBy för att lista de 5 största ordrarna per land
 //7. Utmaning: Använd Average för att räkna ut medel leveranstiden för alla ordrar

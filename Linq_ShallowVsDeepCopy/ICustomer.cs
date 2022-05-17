@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Linq_Orders_Customers
+namespace Linq_ShallowVsDeepCopy
 {
     public interface ICustomer : IEquatable<ICustomer>
     {

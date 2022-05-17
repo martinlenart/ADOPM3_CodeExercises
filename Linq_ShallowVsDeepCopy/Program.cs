@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Serialization;
 
-namespace Linq_Orders_Customers
+namespace Linq_ShallowVsDeepCopy
 {
     static class LinqExtensions
     {

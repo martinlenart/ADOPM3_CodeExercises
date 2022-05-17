@@ -36,7 +36,7 @@ namespace Linq_Orders_Customers
                 CustomerList.Add(cus);
 
                 //Create a random number of order for the customer. Could be 0
-                for (int o = 0; o < rnd.Next(0, MaxNrOfOrdersPerCustomer+1); o++)
+                for (int o = 0; o < rnd.Next(0, MaxNrOfOrdersPerCustomer + 1); o++)
                 {
                     OrderList.Add(Order.Factory.CreateWithRandomData(cus.CustomerID));
                 }
@@ -46,15 +46,48 @@ namespace Linq_Orders_Customers
             QueryOrdersWithLinq(CustomerList, OrderList);
         }
 
-        private static void QueryCustomersWithLinq(IEnumerable<Customer> customers)
+        private static void QueryCustomersWithLinq(IEnumerable<ICustomer> customers)
         {
+            Console.WriteLine($"Nr of Customer: {customers.Count()}");
+            Console.WriteLine("\nFirst 5 Customer:");
+            customers.Take(5).Print();
+
+            Console.WriteLine($"\nNumber of Customers in Sweden {customers.Where(cust => cust.Country == "Sverige").Count()}");
+            Console.WriteLine($"\nOldest customer is born {customers.OrderBy(cust => cust.BirthDate).First().BirthDate:d}");
+            Console.WriteLine($"Youngest customer is born {customers.OrderBy(cust => cust.BirthDate).Last().BirthDate:d}");
+
+            Console.WriteLine($"\nNumber of customers per country");
+            var groups = customers.GroupBy(cust => cust.Country);
+            foreach (var item in groups)
+            {
+                Console.WriteLine($"{item.Key} has {item.Count()} number of customers");
+            }
+
+            Console.WriteLine($"\nNumber of customers that ends LastName with 'son': {customers.Where(cust => cust.LastName.EndsWith("son")).Count()}");
         }
 
-        private static void QueryOrdersWithLinq(IEnumerable<Customer> customers, IEnumerable<Order> orders)
+        private static void QueryOrdersWithLinq(IEnumerable<ICustomer> customers, IEnumerable<IOrder> orders)
         {
+            Console.WriteLine($"\nNr of orders: {orders.Count()}");
+            Console.WriteLine($"Total order value: {orders.Sum(order => order.Total):C2}");
+
+            Console.WriteLine("\ntop 5 Order list:");
+            orders.OrderByDescending(order => order.Value).Take(5).Print();
+
+            Console.WriteLine("\ntop 5 Orders with customer joined in via Join:");
+            var orderCustomer = orders.Join(customers, o => o.CustomerID, c => c.CustomerID, (o, c) => new { o, c });
+            orderCustomer.OrderByDescending(oc => oc.o.Value).Take(5).Print();
+
+            Console.WriteLine("\ntop 5 Customers from order value via GroupJoin:");
+            var CustomerOrders = customers.GroupJoin(orders, c => c.CustomerID, o => o.CustomerID, (cust, orders) => new { cust, orders });
+            foreach (var co in CustomerOrders.OrderByDescending(co => co.orders.Sum(o => o.Value)).Take(5))
+            {
+                Console.WriteLine($"Cust: {co.cust.CustomerID}, Ordercount: {co.orders.Count()}, OrderValue: {co.orders.Sum(o => o.Value):C2}");
+            }
         }
     }
 }
+
 ///Exercises:
 //1.    Antalet kunder, Antalet kunder i Sverige, Äldsta kundens födelsedag, Yngsta kundens födelsedag
 //2.    Använd GroupBy för att lista antalet kunder per land
@@ -62,4 +95,5 @@ namespace Linq_Orders_Customers
 
 //4.    Antalet ordrar och totalt ordervärde av de 5 största ordrarna
 //5.    Använd Join för att lista kund och ordervärde för de 5 största ordrarna
+
 //6.    Använd GroupJoin för att lista de 5 största kunderna baserat på ordervärde
