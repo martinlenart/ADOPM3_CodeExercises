@@ -48,7 +48,7 @@ namespace Async
         }
         public static byte[] ReadCompressBytes(string path)
         {
-            const int arrayPageSize = 32768;
+            const int arrayPageSize = 100_000; //default size and chunks of increase
 
             byte[] buffer = new byte[arrayPageSize];
             int bytesInBuffer = 0;
@@ -63,14 +63,17 @@ namespace Async
                     //bytesRead number of bytes read into buffer
                     bytesInBuffer += bytesRead;
 
-                    //Check if buffer needs to be expanded
+                    //Check buffer boundry to see if buffer needs to be expanded
                     if (bytesInBuffer == buffer.Length)
                     {
-                        int nextByte = r.ReadByte();
-
-                        //if nothing more to read, terminate and return buffer
-                        if (nextByte == -1)
+                        int nextByte;
+                        try
                         {
+                            nextByte = r.ReadByte();
+                        }
+                        catch (EndOfStreamException)
+                        {
+                            //Nothing more to read, terminate and return buffer
                             return buffer;
                         }
 
@@ -78,6 +81,7 @@ namespace Async
                         byte[] newBuffer = new byte[buffer.Length + arrayPageSize];
                         Array.Copy(buffer, newBuffer, buffer.Length);
 
+                        //Dont forget the byte read to test EndOfStream
                         newBuffer[bytesInBuffer] = (byte)nextByte;
                         buffer = newBuffer;
                         bytesInBuffer++;

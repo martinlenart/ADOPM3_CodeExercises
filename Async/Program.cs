@@ -19,10 +19,10 @@ namespace Async
             Console.WriteLine($"Sync File written: {syncFileName}");
 
             byte[] imageCopy1 = StreamManager.ReadCompressBytes(syncFileName, imageSrc.Length);
-            Console.WriteLine($"Sync File read: {syncFileName}, nrOfBytes: {imageCopy1.Length}");
+            Console.WriteLine($"Sync File read: {syncFileName}, nrOfBytes: {imageCopy1.Length:N0}");
 
             byte[] imageCopy2 = StreamManager.ReadCompressBytes(syncFileName);
-            Console.WriteLine($"Sync File read: {syncFileName}, nrOfBytes: {imageCopy2.Length}");
+            Console.WriteLine($"Sync File read: {syncFileName}, nrOfBytes: {imageCopy2.Length:N0}");
 
             //Verify that image contents are identical
             for (int i = 0; i < imageSrc.Length; i++)
@@ -37,10 +37,10 @@ namespace Async
             Console.WriteLine($"Async File written: {asyncFileName}");
 
             byte[] imageCopy3 = await StreamManager.ReadCompressBytesAsync(asyncFileName, imageSrc.Length);
-            Console.WriteLine($"Async File read: {asyncFileName}, nrOfBytes: {imageCopy3.Length}");
+            Console.WriteLine($"Async File read: {asyncFileName}, nrOfBytes: {imageCopy3.Length:N0}");
 
             byte[] imageCopy4 = await StreamManager.ReadCompressBytesAsync(asyncFileName);
-            Console.WriteLine($"Async File read: {asyncFileName}, nrOfBytes: {imageCopy4.Length}");
+            Console.WriteLine($"Async File read: {asyncFileName}, nrOfBytes: {imageCopy4.Length:N0}");
 
             //Verify that image contents are identical
             for (int i = 0; i < imageSrc.Length; i++)
@@ -49,7 +49,7 @@ namespace Async
                     throw new BadImageFormatException();
             }
 
-            Console.WriteLine("\nAll images are identical");
+            Console.WriteLine("\nAll images are confirmed identical");
 
         }
 
