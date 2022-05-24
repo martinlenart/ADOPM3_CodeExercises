@@ -12,10 +12,10 @@ namespace Serialization
             collection.ToList().ForEach(item => Console.WriteLine(item));
         }
     }
-    public class OrderCustomer
+    public class CustomerOrders
     {
         public Customer cus { get; set; }
-        public Order ord { get; set; }
+        public List<Order> orders { get; set; }
     }
 
     class Program
@@ -41,6 +41,47 @@ namespace Serialization
                     OrderList.Add(Order.Factory.CreateWithRandomData(cus.CustomerID));
                 }
             }
+
+
+            //All customers in Lettand
+            var cusLettand = CustomerList.Where(c => c.Country == "Lettland").ToList();
+            //cusLettand.Take(10).Print();
+
+
+            var xs = new XmlSerializer(typeof(List<Customer>));
+
+            using (Stream s = File.Create(fname("LettlandKunder.xml")))
+                xs.Serialize(s, cusLettand);
+
+            Console.WriteLine(cusLettand.Count());
+            Console.WriteLine(fname("LettlandKunder.xml"));
+
+
+            List<Customer> anotherList = new List<Customer>();
+            using (Stream s = File.OpenRead(fname("LettlandKunder.xml")))
+                anotherList = (List<Customer>)xs.Deserialize(s);
+
+
+            Console.WriteLine(anotherList.Count());
+
+
+            Console.WriteLine("\ntop 10 Customers from order value via GroupJoin:");
+            var CustomerOrders = CustomerList.GroupJoin(OrderList, c => c.CustomerID, o => o.CustomerID,
+                (cust, orders) => new CustomerOrders {  cus = cust, orders = orders.ToList()});
+
+
+
+            var topOrders = CustomerOrders.OrderByDescending(co => co.orders.Sum(o => o.Value)).Take(10).ToList();
+            foreach (var co in topOrders)
+            {
+                Console.WriteLine($"Cust: {co.cus.CustomerID}, Ordercount: {co.orders.Count()}, OrderValue: {co.orders.Sum(o => o.Value):C2}");
+            }
+
+
+            var xs1 = new XmlSerializer(typeof(List<CustomerOrders>));
+
+            using (Stream s = File.Create(fname("TopOrders.xml")))
+                xs1.Serialize(s, topOrders);
 
 
         }
