@@ -11,21 +11,46 @@ namespace Async
         {
             //Random byte[], could be an image
             Random rand = new Random(0);
-            byte[] image = new byte[10_000_000];
-            rand.NextBytes(image);
+            byte[] imageSrc = new byte[10_000_000];
+            rand.NextBytes(imageSrc);
 
-            var file = StreamManager.WriteCompressBytes(fname("AnImage.bin"), image);
-            Console.WriteLine($"Sync File written: {file}");
+            //Write and read synchronously
+            var syncFileName = StreamManager.WriteCompressBytes(fname("AnImage.bin"), imageSrc);
+            Console.WriteLine($"Sync File written: {syncFileName}");
 
-            byte[] image2 = StreamManager.ReadCompressBytes(file, image.Length);
-            Console.WriteLine($"Sync File read: {file}, nrOfBytes: {image2.Length}");
+            byte[] imageCopy1 = StreamManager.ReadCompressBytes(syncFileName, imageSrc.Length);
+            Console.WriteLine($"Sync File read: {syncFileName}, nrOfBytes: {imageCopy1.Length}");
 
+            byte[] imageCopy2 = StreamManager.ReadCompressBytes(syncFileName);
+            Console.WriteLine($"Sync File read: {syncFileName}, nrOfBytes: {imageCopy2.Length}");
 
-            var file1 = await StreamManager.WriteCompressBytesAsync(fname("AnAsyncImage.bin"), image);
-            Console.WriteLine($"Async File written: {file1}");
+            //Verify that image contents are identical
+            for (int i = 0; i < imageSrc.Length; i++)
+            {
+                if (imageSrc[i] != imageCopy1[i] || imageSrc[i] != imageCopy2[i])
+                    throw new BadImageFormatException();
+            }
 
-            byte[] image3 = await StreamManager.ReadCompressBytesAsync(fname("AnAsyncImage.bin"), image.Length);
-            Console.WriteLine($"Async File read: {file1}, nrOfBytes: {image3.Length}");
+            //Write and read Asynchronously
+            Console.WriteLine();
+            var asyncFileName = await StreamManager.WriteCompressBytesAsync(fname("AnAsyncImage.bin"), imageSrc);
+            Console.WriteLine($"Async File written: {asyncFileName}");
+
+            byte[] imageCopy3 = await StreamManager.ReadCompressBytesAsync(asyncFileName, imageSrc.Length);
+            Console.WriteLine($"Async File read: {asyncFileName}, nrOfBytes: {imageCopy3.Length}");
+
+            byte[] imageCopy4 = await StreamManager.ReadCompressBytesAsync(asyncFileName);
+            Console.WriteLine($"Async File read: {asyncFileName}, nrOfBytes: {imageCopy4.Length}");
+
+            //Verify that image contents are identical
+            for (int i = 0; i < imageSrc.Length; i++)
+            {
+                if (imageSrc[i] != imageCopy3[i] || imageSrc[i] != imageCopy4[i])
+                    throw new BadImageFormatException();
+            }
+
+            Console.WriteLine("\nAll images are identical");
+
         }
 
         static string fname(string name)

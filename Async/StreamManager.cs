@@ -40,6 +40,56 @@ namespace Async
                 return imageRead;
             }
         }
+
+
+        public static Task<byte[]> ReadCompressBytesAsync(string path)
+        {
+            return Task.Run(() => ReadCompressBytes(path));
+        }
+        public static byte[] ReadCompressBytes(string path)
+        {
+            const int arrayPageSize = 32768;
+
+            byte[] buffer = new byte[arrayPageSize];
+            int bytesInBuffer = 0;
+
+            using (Stream s = File.OpenRead(path))
+            using (Stream ds = new GZipStream(s, CompressionMode.Decompress))
+            using (BinaryReader r = new BinaryReader(ds))
+            {
+                int bytesRead;
+                while ((bytesRead = r.Read(buffer, bytesInBuffer, buffer.Length - bytesInBuffer)) > 0)
+                {
+                    //bytesRead number of bytes read into buffer
+                    bytesInBuffer += bytesRead;
+
+                    //Check if buffer needs to be expanded
+                    if (bytesInBuffer == buffer.Length)
+                    {
+                        int nextByte = r.ReadByte();
+
+                        //if nothing more to read, terminate and return buffer
+                        if (nextByte == -1)
+                        {
+                            return buffer;
+                        }
+
+                        //resize and copy the buffer
+                        byte[] newBuffer = new byte[buffer.Length + arrayPageSize];
+                        Array.Copy(buffer, newBuffer, buffer.Length);
+
+                        newBuffer[bytesInBuffer] = (byte)nextByte;
+                        buffer = newBuffer;
+                        bytesInBuffer++;
+                    }
+                }
+            
+                //No more bytes to read, adjust the bufferSize
+                byte[] retBuffer = new byte[bytesInBuffer];
+                Array.Copy(buffer, retBuffer, bytesInBuffer);
+                return retBuffer;
+            }
+        }
     }
 }
 
