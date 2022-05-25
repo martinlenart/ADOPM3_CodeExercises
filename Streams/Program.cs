@@ -9,50 +9,19 @@ namespace Streams
     {
         static void Main(string[] args)
         {
-            Random rand = new Random(0);
+            //Create a random byte[]
+            byte[] imageSrc = new byte[10_000_000];
+            new Random().NextBytes(imageSrc);
 
-            //Random byte[]
-            byte[] image = new byte[10_000_000];
-//            rand.NextBytes(image);
+            //Stream compressed to and from File
+            var size = StreamManager.StreamToFile(imageSrc, fname("Streams_uncompressedbytes.bin"));
+            var imageCopy = StreamManager.StreamFromFile(imageSrc.Length, fname("Streams_uncompressedbytes.bin"));
+            var imageCopy1 = StreamManager.StreamFromFile(fname("Streams_uncompressedbytes.bin"));
 
-            for (int i = 0; i < image.Length; i++)
-            {
-                image[i] = 236;
-            }
+            verifyContent(imageSrc, imageCopy);
+            verifyContent(imageSrc, imageCopy1);
+            Console.WriteLine($"File stream write/read {size:N0} bytes confirmed");
 
-            //Uncompressed
-            using (Stream s = new MemoryStream())
-            //            using (Stream s = File.Create(fname("Example4_13_uncompressedbytes.bin")))
-            using (BinaryWriter w = new BinaryWriter(s))
-            {
-                w.Write(image);
-                Console.WriteLine(s.Length);
-            }
-            //            Console.WriteLine(new FileInfo(fname("Example4_13_uncompressedbytes.bin")).Length);
-
-            using (Stream s = new MemoryStream())
-            //            using (Stream s = File.Create(fname("Example4_13_compressedbytes.bin")))
-            //            using (Stream ds = new DeflateStream(s, CompressionMode.Compress))
-            using (Stream ds = new GZipStream(s, CompressionMode.Compress))
-            //            using (Stream ds = new BrotliStream(s, CompressionMode.Compress))
-            using (BinaryWriter w = new BinaryWriter(ds))
-            {
-                w.Write(image);
-                Console.WriteLine(s.Length);
-            }
-
-//            Console.WriteLine(new FileInfo(fname("Example4_13_compressedbytes.bin")).Length);
-
-            using (Stream s = new MemoryStream())
-//            using (Stream s = File.OpenRead(fname("Example4_13_compressedbytes.bin")))
-//            using (Stream ds = new DeflateStream(s, CompressionMode.Decompress))
-            using (Stream ds = new GZipStream(s, CompressionMode.Decompress))
-//            using (Stream ds = new BrotliStream(s, CompressionMode.Decompress))
-            using (BinaryReader r = new BinaryReader(ds))
-            {
-                byte[] imageRead = r.ReadBytes(image.Length);
-                Console.Write(imageRead.Length);
-            }
 
             static string fname(string name)
             {
@@ -61,12 +30,24 @@ namespace Streams
                 if (!Directory.Exists(documentPath)) Directory.CreateDirectory(documentPath);
                 return Path.Combine(documentPath, name);
             }
+
+            static void verifyContent(byte[] imageSrc, byte[] imageCopy)
+            {
+                //Verify that image contents are identical
+                for (int i = 0; i < imageSrc.Length; i++)
+                {
+                    if (imageSrc[i] != imageCopy[i])
+                        throw new BadImageFormatException();
+                }
+            }
         }
 
+
         //Exercises:
-        //1.    Modify above code to compress using GZip and BrotliStream algorithms
-        //2.    Modify the code both to use FileStreams
-        //3.    Modify code to compress a randomly initialized byte array of 10M bytes
-        //4.    Add Methods to stream the content of AppLog in Logger
+        //1.    Go through StreamManager.StreamFromFile() which does not take any size input,
+        //      to understand how it works. Can you explain it?
+        //2.    Modify StreamManager.StreamToFile() and both StreamManager.StreamFromFile() to
+        //      include GZip compression
+        //3.    Add Methods to stream the content of AppLog in project Logger
     }
 }
