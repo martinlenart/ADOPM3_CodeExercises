@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace IEnumerable
 {
-    public struct AddressType
+    public class AddressType
     {
         public string Street { get; set; }
         public int Zip { get; set; }

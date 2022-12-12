@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 
 namespace Lambda0
 {
@@ -26,21 +27,24 @@ namespace Lambda0
             #region Exercise 2
             Console.WriteLine("Delegates I");
             Console.WriteLine($"\n{nameof(numbers)} output by delegate");
-            Array.ForEach(numbers, WriteInts);
+            Array.ForEach(numbers, myInt=> Console.WriteLine(myInt));
+
+
             Console.WriteLine($"\n{nameof(cities)} output by delegate");
             Array.ForEach(cities, WriteString);
 
             Console.WriteLine($"\n{nameof(numbers)} output by generic delegate");
-            Array.ForEach(numbers, WriteItem);
+            Array.ForEach(numbers, WriteItem<int>);
             Console.WriteLine($"\n{nameof(cities)} output by generic delegate");
-            Array.ForEach(cities, WriteItem);
+            Array.ForEach(cities, WriteItem<string>);
 
             Console.WriteLine("\nDelegates II");
             var evenlist = Array.FindAll(numbers, IsEven);
             Array.ForEach(evenlist, WriteItem);
 
             Console.WriteLine();
-            Array.ForEach(Array.FindAll(cities, IsLongName), WriteItem);
+            var temp = Array.FindAll(cities, IsLongName);
+            Array.ForEach(temp, WriteItem);
 
             Console.WriteLine("\nDelegates III");
             Console.WriteLine(Array.Find(numbers, IsLargeNumber));
