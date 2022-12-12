@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33110.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lambda0", "Lambda0\Lambda0.csproj", "{6B12DC6B-9189-4894-806F-7158DF188605}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IEnumerable", "Enumerable\IEnumerable.csproj", "{125869D1-97E2-4FA7-8650-778F176A4940}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6B12DC6B-9189-4894-806F-7158DF188605}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B12DC6B-9189-4894-806F-7158DF188605}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B12DC6B-9189-4894-806F-7158DF188605}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B12DC6B-9189-4894-806F-7158DF188605}.Release|Any CPU.Build.0 = Release|Any CPU
+		{125869D1-97E2-4FA7-8650-778F176A4940}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{125869D1-97E2-4FA7-8650-778F176A4940}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{125869D1-97E2-4FA7-8650-778F176A4940}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{125869D1-97E2-4FA7-8650-778F176A4940}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D7BEAE6F-A43F-41C3-BBAA-97E7A02373ED}
+	EndGlobalSection
+EndGlobal
