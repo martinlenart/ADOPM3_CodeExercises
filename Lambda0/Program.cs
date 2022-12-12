@@ -88,7 +88,7 @@ namespace Lambda0
 
 //Exercises Delegates => Lamda Expressions
 //1.  Go through the code above and try to understand the usage of delegates
-//2.  Redo Exercises from Project Delegate1 using Lambda Expressions in all Array.ForEach(), Array.FindAll(),
+//2.  Redo Exercises from in region Exercise 2 using Lambda Expressions in all Array.ForEach(), Array.FindAll(),
 //    Array.Find(), Array.FindLast()
 //3.  Use Array.ForEach() and Lambda (with a captured variable count) to calculate the sum of all the
 //    elements in the array numbers

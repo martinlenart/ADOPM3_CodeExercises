@@ -24,15 +24,12 @@ namespace IEnumerable // Note: actual namespace depends on the project name.
             Console.WriteLine("\nfriendList1 using foreach - loop");
 
             //3. create a list from friendList1 using simply copyfriends = friendList1.ToList()
-            //Very that you have created a deepcopy by modifying an element and compare
+            //Sort the list according to country and write to console using copyfriends.ForEach()
             //Your code:
-            Console.WriteLine("\ncopyfriends using foreach - loop");
-
-            //4. Sort the list according to country and write to console using copyfriends.ForEach() 
-            //Your code
+            Console.WriteLine("\nSorted copyfriends using foreach - loop");
         }
     }
 }
 //Exercises make a class an enumerable
 //1. Modify the code according to the instructions above for point 1 to 3
-//2. Sort and print the list according to instructions above for point 3 and 4
+//2. Sort and print the list according to instructions above for point 3
