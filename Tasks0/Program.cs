@@ -14,6 +14,9 @@ namespace Tasks0
             var t1 = Task.Run(() =>
             {
                 //Your Code to implement Task t1
+                Console.WriteLine(Message);
+                Task.Delay(2000).Wait();        //Wait 2s (2000ms)
+                Console.WriteLine(Message);
             });
 
             //Create Task t2
