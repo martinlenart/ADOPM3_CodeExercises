@@ -88,7 +88,7 @@ namespace Linq_Orders
         {
             this.OrderID = Guid.NewGuid();
         }
-        public Order (IOrder src)
+        public Order (Order src)
         {
             FirstName = src.FirstName;
             LastName = src.LastName;
