@@ -23,7 +23,7 @@ namespace ErrorHandling
         private static void ProcessUserInput()
         {
             bool quit = false;
-            Console.WriteLine("Don't Press Button 3, 4, 5 or 7!");
+            Console.WriteLine("Don't Press Button 5 or 7!");
             do
             {
                 Console.WriteLine("Which button do you want to press?");
@@ -43,18 +43,6 @@ namespace ErrorHandling
                             PressTheButton(buttonToPress);
                             Console.WriteLine("Indeed the button was pressed successfully");
                         }
-                        catch (ExplosionException ex)
-                        {
-                            AppLog.Instance.LogException(ex);
-                            Console.WriteLine($"{ex.Message}");
-                            if (ex.Severity == ErrorSeverity.fatal)
-                            {
-                                Console.WriteLine($"Sorry, I cannot manage this error");
-                                throw;
-                            }
-                            Console.WriteLine($"I could manage this error, continue to play");
-                        }
-
                         catch (InsufficientMemoryException ex)
                         {
                             AppLog.Instance.LogException(ex);
@@ -80,12 +68,6 @@ namespace ErrorHandling
         }
         static void PressTheButton(int buttonNr)
         {
-            if (buttonNr == 3)
-                throw new ExplosionException("Managable KaBoom", buttonNr, ErrorSeverity.managable);
-
-            if (buttonNr == 4)
-                throw new ExplosionException("Fatal Crash", buttonNr, ErrorSeverity.fatal);
-            
             if (buttonNr == 5)
                 throw new Exception("KaBoom!!");
 
