@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tasks0", "Tasks0\Tasks0.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ErrorHandling", "ErrorHandling\ErrorHandling.csproj", "{9936B31D-5273-437B-B55F-45D9E4453971}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Streams0", "Streams0\Streams0.csproj", "{23EDDDC9-280F-4394-BF81-4BC8E9D907D7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{9936B31D-5273-437B-B55F-45D9E4453971}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9936B31D-5273-437B-B55F-45D9E4453971}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9936B31D-5273-437B-B55F-45D9E4453971}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23EDDDC9-280F-4394-BF81-4BC8E9D907D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23EDDDC9-280F-4394-BF81-4BC8E9D907D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23EDDDC9-280F-4394-BF81-4BC8E9D907D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23EDDDC9-280F-4394-BF81-4BC8E9D907D7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
