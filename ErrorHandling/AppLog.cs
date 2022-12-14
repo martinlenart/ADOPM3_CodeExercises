@@ -50,16 +50,19 @@ namespace ErrorHandling
             }
         }
 
-        public void WriteToDisk()
+        public string WriteToDisk()
         {
-            using (Stream s = File.Create(fname(LoggerFile)))
+            string logFile = fname(LoggerFile);
+            using (Stream s = File.Create(logFile))
             using (TextWriter w = new StreamWriter(s))
             {
                 foreach(var item in this.ToList())
                 {
                     w.WriteLine(item);
                 }
-             }          
+             }
+
+            return logFile;
         }
 
         public void LogInformation(params string[] info)

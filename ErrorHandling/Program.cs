@@ -17,7 +17,7 @@ namespace ErrorHandling
             }
             finally
             {
-                AppLog.Instance.WriteToDisk();
+                Console.WriteLine(AppLog.Instance.WriteToDisk());
             }
         }
         private static void ProcessUserInput()
