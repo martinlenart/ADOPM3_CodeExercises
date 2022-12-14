@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Linq_Orders", "Linq_Orders\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Linq_Orders_Customers", "Linq_Orders_Customers\Linq_Orders_Customers.csproj", "{0DB213CB-37FC-4CC9-9D5B-8A81ECE15F75}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tasks0", "Tasks0\Tasks0.csproj", "{340376E2-010B-4DEB-9DEE-482FF5C49E40}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tasks0", "Tasks0\Tasks0.csproj", "{340376E2-010B-4DEB-9DEE-482FF5C49E40}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ErrorHandling", "ErrorHandling\ErrorHandling.csproj", "{9936B31D-5273-437B-B55F-45D9E4453971}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{340376E2-010B-4DEB-9DEE-482FF5C49E40}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{340376E2-010B-4DEB-9DEE-482FF5C49E40}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{340376E2-010B-4DEB-9DEE-482FF5C49E40}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9936B31D-5273-437B-B55F-45D9E4453971}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9936B31D-5273-437B-B55F-45D9E4453971}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9936B31D-5273-437B-B55F-45D9E4453971}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9936B31D-5273-437B-B55F-45D9E4453971}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
