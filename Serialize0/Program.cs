@@ -26,3 +26,4 @@ namespace Serialization0 // Note: actual namespace depends on the project name.
 }
 //Exercise:
 //1. Implement SerializeXml(), DeSerializeXml(), SerializeJson(), and DeSerializeJson()
+//2. Open the xml file in Excel
