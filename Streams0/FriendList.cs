@@ -63,17 +63,17 @@ namespace Streams0
         }
 
         /// <summary>
-        /// Uncompresses the zipFile and writes the uncompressed content to a texfile
+        /// Uncompresses the zipFile and writes the uncompressed content to a textfile
         /// </summary>
         /// <param name="zipFileName">Zip file to read and uncompress</param>
         /// <param name="txtFileName">Text file to write the uncompressed content</param>
         /// <returns></returns>
         public string UncompressToDisk(string zipFileName, string txtFileName)
         {
-            //read from stream
+            //read from zip stream
             //Your Code
 
-            //write to stream
+            //write to text stream
             //Your Code
 
             return fname(txtFileName);
