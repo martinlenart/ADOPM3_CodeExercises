@@ -8,6 +8,7 @@ namespace Delegate1
         static void Main(string[] args)
         {
             #region Starting point
+            Console.WriteLine("Starting point");
             int[] numbers = new int[20];
             string[] cities = new string[20];
 
@@ -25,6 +26,7 @@ namespace Delegate1
 
             #region Exercises 1-4
             Console.WriteLine("Delegates I Exercises");
+            Array.ForEach(numbers, WriteInt);
             #endregion
 
             #region Exercises 5-6
@@ -52,6 +54,10 @@ namespace Delegate1
         #endregion
 
         #region Exercises 1-4
+        static void WriteInt(int i)
+        {
+            Console.Write($"{i,-8}");
+        }
         #endregion
 
         #region Exercises 5-6
