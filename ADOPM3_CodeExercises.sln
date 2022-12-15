@@ -21,7 +21,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Streams0", "Streams0\Stream
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Serialize0", "Serialize0\Serialize0.csproj", "{86710279-9FBB-438D-99B4-D3802706CB24}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Delegate1", "Delegate1\Delegate1.csproj", "{D3F062BB-95AA-4CD6-929A-84B8E16596CD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Delegate1", "Delegate1\Delegate1.csproj", "{D3F062BB-95AA-4CD6-929A-84B8E16596CD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Delegate2", "Delegate2\Delegate2.csproj", "{A9C2BC5B-4107-4AC6-99FC-018910B2362A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,6 +71,10 @@ Global
 		{D3F062BB-95AA-4CD6-929A-84B8E16596CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D3F062BB-95AA-4CD6-929A-84B8E16596CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D3F062BB-95AA-4CD6-929A-84B8E16596CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9C2BC5B-4107-4AC6-99FC-018910B2362A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9C2BC5B-4107-4AC6-99FC-018910B2362A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9C2BC5B-4107-4AC6-99FC-018910B2362A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9C2BC5B-4107-4AC6-99FC-018910B2362A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
