@@ -9,6 +9,8 @@ namespace Delegate2 // Note: actual namespace depends on the project name.
     {
         static void Main(string[] args)
         {
+            var johnOnly = FriendList.Factory.CreateRandom(100, AllJohn);
+            var gavleOnly = FriendList.Factory.CreateRandom(100, AllGavle);
 
             var friends = FriendList.Factory.CreateRandom(100);
  
@@ -21,7 +23,6 @@ namespace Delegate2 // Note: actual namespace depends on the project name.
             Console.WriteLine("\nHello to Scandinavia");
             friends.SayHello(HelloScandinavia);
 
-            var gavleOnly = FriendList.Factory.CreateRandom(100, AllGavle);
 
         }
 
