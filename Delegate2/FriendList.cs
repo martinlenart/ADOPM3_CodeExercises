@@ -7,9 +7,6 @@ using System.Xml.Serialization;
 
 namespace Delegate2
 {
-    //public delegate Friend DoYourOwnRandomStuff(Friend friend);
-    //public delegate void SayHelloToFriends(Friend friend);
-    
     public class FriendList
     {
         public  List<Friend> myFriends = new List<Friend>();
