@@ -55,5 +55,5 @@ namespace Delegate2 // Note: actual namespace depends on the project name.
 }
 
 //Exercise
-// 1. Go through the creation of gavleOnly List and understand the process when the delegate is invoked
+// 1. Go through the creation of gavleOnly and johnOnly List and understand the process when the delegate is invoked
 // 2. Implement the 3 Hello delegates so you say Hello to the appropriate persons
