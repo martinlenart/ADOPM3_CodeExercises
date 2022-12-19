@@ -6,7 +6,7 @@
         {
             try
             {
-                string Message = "Martins hello";
+                string Message = "hello";
                 var t1 = Task.Run(() =>
                 {
                     for (int i = 0; i < 5; i++)
@@ -72,3 +72,5 @@
 //1. Write code in the exception handler to check what task faulted and write an error message containing the message from the faulted task
 //2. Experiement by letting one or several of the tasks simulate an error by throwing an Exception. See that you get an error message
 //3. What happens if two or more tasks fault?
+//4. What happens if you in your try statement waits for all tasks to complete before printing out the results. In other words make a Task.WaitAll()
+//   - try with errors generated in several tasks
