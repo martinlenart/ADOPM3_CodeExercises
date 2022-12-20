@@ -4,26 +4,27 @@
     {
         static void Main(string[] args)
         {
+            Task<string> t1 = null, t2 = null, t3 = null;
             try
             {
                 string Message = "hello";
-                var t1 = Task.Run(() =>
+                t1 = Task.Run(() =>
                 {
                     for (int i = 0; i < 5; i++)
                     {
                         Console.WriteLine($"{Message}{i} from Task1");
                         Task.Delay(200);
-                        if (i == 5)
+                        if (i == 4)
                         {
-                            //throw new Exception("Task1 has faulted");
+                            throw new Exception("Task1 has faulted");
                         }
                     }
 
                     return "Task1 has completed";
                 });
-                Console.WriteLine(t1.Result);
+                //Console.WriteLine(t1.Result);
 
-                var t2 = Task.Run(() =>
+                t2 = Task.Run(() =>
                 {
                     for (int i = 0; i < 10; i++)
                     {
@@ -32,15 +33,15 @@
                         Task.Delay(1000);
                         if (i == 5)
                         {
-                            //throw new Exception("Task2 has faulted");
+                            throw new Exception("Task2 has faulted");
                         }
 
                     }
                     return "Task2 has completed";
                 });
-                Console.WriteLine(t2.Result);
+                //Console.WriteLine(t2.Result);
 
-                var t3 = Task.Run(() =>
+                t3 = Task.Run(() =>
                 {
                     for (int i = 0; i < 15; i++)
                     {
@@ -48,16 +49,28 @@
                         Task.Delay(500);
                         if (i == 5)
                         {
-                            //throw new Exception("Task3 has faulted");
+                            throw new Exception("Task3 has faulted");
                         }
                     }
                     return "Task3 completed";
                 });
+                //Console.WriteLine(t3.Result);
+
+                Task.WaitAll(t1, t2, t3);
+                Console.WriteLine(t1.Result);
+                Console.WriteLine(t2.Result);
                 Console.WriteLine(t3.Result);
             }
             catch (Exception ex)
             {
                 //Your code
+                Console.WriteLine(ex.Message);
+                if (t1 != null && t1.IsFaulted)
+                    Console.WriteLine("t1 faulted");
+                if (t2 != null && t2.IsFaulted)
+                    Console.WriteLine("t2 faulted");
+                if (t3 != null && t3.IsFaulted)
+                    Console.WriteLine("t3 faulted");
             }
             finally
             {

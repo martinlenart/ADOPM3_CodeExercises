@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 
-namespace Tasks0
+namespace Task0
 {
     internal class Program
     {
