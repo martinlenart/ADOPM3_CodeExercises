@@ -6,7 +6,7 @@ namespace Task3
 { 
     internal class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
             string s1 = null, s2 = null, s3 = null;
             Task<string> t1 = null, t2 = null, t3 = null;
@@ -23,14 +23,13 @@ namespace Task3
 
                 Console.WriteLine("\n\nAsyncron calls");
                 //Ex3 - make the calls to SayHelloAsync
-                t1 = SayHelloAsync("Good Morning", 10, 1000, false);
-                Console.WriteLine(t1.Result);
+                var r1 = await SayHelloAsync("Good Morning", 10, 1000, false); 
+                var r2 = await SayHelloAsync("Good Afternoon", 5, 2000, false);
+                var r3 = await SayHelloAsync("Good Evening", 15, 500, false);
 
-                t2 = SayHelloAsync("Good Afternoon", 5, 2000, false);
-                Console.WriteLine(t2.Result);
-
-                t3 = SayHelloAsync("Good Evening", 15, 500, false);
-                Console.WriteLine(t3.Result);
+                Console.WriteLine(r1);
+                Console.WriteLine(r2);
+                Console.WriteLine(r3);
             }
             catch (Exception ex)
             {
