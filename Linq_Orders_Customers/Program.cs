@@ -14,8 +14,14 @@ namespace Linq_Orders_Customers
     }
     public class OrderCustomer
     {
-        public Customer cus { get; set; }
-        public Order ord { get; set; }
+        public IOrder order { get; set; }
+        public ICustomer customer { get; set; }
+    }
+
+    public class CustomerOrders
+    {
+        public ICustomer customer { get; set; }
+        public IEnumerable<IOrder> orders { get; set; }
     }
 
     class Program
@@ -64,6 +70,8 @@ namespace Linq_Orders_Customers
 //3.    Antalet kunder med ett efternamn som slutar på 'son'
 
 //4.    Antalet ordrar och totalt ordervärde av de 5 största ordrarna
-//5.    Använd Join för att lista kund och ordervärde för de 5 största ordrarna
+//5.    Använd Join för att lista kund och ordervärde för de 5 största ordrarna.
+//          Hint: använd Join för att skapa en lista av  OrderCustomer
 
 //6.    Använd GroupJoin för att lista de 5 största kunderna baserat på ordervärde
+//          Hint: använd GroupJoin för att skapa en lista av  CustomerOrders
