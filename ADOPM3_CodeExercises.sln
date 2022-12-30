@@ -35,7 +35,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task3", "Task3\Task3.csproj
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Event2", "Event2\Event2.csproj", "{E77992D9-145E-4254-B2A9-823CD10E27DA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreadSafeData", "ThreadSafeData\ThreadSafeData.csproj", "{3F8B21A1-3486-4008-A8AF-B90E0E933339}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ThreadSafeData", "ThreadSafeData\ThreadSafeData.csproj", "{3F8B21A1-3486-4008-A8AF-B90E0E933339}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Async", "Async\Async.csproj", "{056106E5-9FED-40A6-8B69-62B88BD6A6FB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -111,6 +113,10 @@ Global
 		{3F8B21A1-3486-4008-A8AF-B90E0E933339}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3F8B21A1-3486-4008-A8AF-B90E0E933339}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3F8B21A1-3486-4008-A8AF-B90E0E933339}.Release|Any CPU.Build.0 = Release|Any CPU
+		{056106E5-9FED-40A6-8B69-62B88BD6A6FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{056106E5-9FED-40A6-8B69-62B88BD6A6FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{056106E5-9FED-40A6-8B69-62B88BD6A6FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{056106E5-9FED-40A6-8B69-62B88BD6A6FB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

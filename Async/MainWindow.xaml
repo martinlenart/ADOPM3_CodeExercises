@@ -1,0 +1,19 @@
+﻿<Window x:Class="Async.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Async"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <TextBox Name="myGreetings" HorizontalAlignment="Left" Height="23" Margin="323,201,0,0" TextWrapping="Wrap" Text="Say Hello" VerticalAlignment="Top" Width="120"/>
+        <Button Content="Click Count" HorizontalAlignment="Left" Margin="323,239,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <Label Name="myCounter" Content="0" HorizontalAlignment="Left" Margin="405,239,0,0" VerticalAlignment="Top"/>
+        <Button Content="Sync IO Bound" HorizontalAlignment="Left" VerticalAlignment="Top" Width="87" Margin="120,202,0,0" Click="Button_Click_6" />
+        <Button Content="Async IO Bound" HorizontalAlignment="Left" VerticalAlignment="Top" Width="88" Margin="219,201,0,0" Click="Button_Click_1" />
+        <Button Content="Sync CPU Bound" HorizontalAlignment="Left" Margin="120,239,0,0" VerticalAlignment="Top" Width="87" Click="Button_Click_7" />
+        <Button Content="Async CPU Bound" HorizontalAlignment="Left" Margin="219,239,0,0" VerticalAlignment="Top" Width="88" Click="Button_Click_2" />
+        <Button Content="Write" HorizontalAlignment="Left" Margin="510,200,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_3"/>
+    </Grid>
+</Window>
