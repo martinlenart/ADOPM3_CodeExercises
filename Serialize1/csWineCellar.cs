@@ -4,7 +4,7 @@ namespace _05_Wines_Interfaces
     public class WineCellar
     {
         public string Name { get; set; }
-        public List<csWine> Wines { get; } = new List<csWine>();
+        public List<csWine> Wines { get; set; } = new List<csWine>();
 
         public void Add(csWine wine) => Wines.Add(wine);
         public int Count => Wines.Count;
