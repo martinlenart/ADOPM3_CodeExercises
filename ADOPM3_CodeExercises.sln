@@ -39,6 +39,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ThreadSafeData", "ThreadSaf
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Async", "Async\Async.csproj", "{056106E5-9FED-40A6-8B69-62B88BD6A6FB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Helpers", "Helpers\Helpers.csproj", "{452465D2-1D15-4F2F-B13A-1FE266C29DDF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Streams1", "Streams1\Streams1.csproj", "{C042CEFF-CF41-4512-B1B1-DB565E2E4778}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -117,6 +121,14 @@ Global
 		{056106E5-9FED-40A6-8B69-62B88BD6A6FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{056106E5-9FED-40A6-8B69-62B88BD6A6FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{056106E5-9FED-40A6-8B69-62B88BD6A6FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{452465D2-1D15-4F2F-B13A-1FE266C29DDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{452465D2-1D15-4F2F-B13A-1FE266C29DDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{452465D2-1D15-4F2F-B13A-1FE266C29DDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{452465D2-1D15-4F2F-B13A-1FE266C29DDF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C042CEFF-CF41-4512-B1B1-DB565E2E4778}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C042CEFF-CF41-4512-B1B1-DB565E2E4778}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C042CEFF-CF41-4512-B1B1-DB565E2E4778}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C042CEFF-CF41-4512-B1B1-DB565E2E4778}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
