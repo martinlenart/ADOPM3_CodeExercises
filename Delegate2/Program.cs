@@ -33,24 +33,12 @@ namespace Delegate2 // Note: actual namespace depends on the project name.
 
         public static void HelloFinland(Friend friend)
         {
-            if (friend.Address.Country == "Finland")
-            {
-                Console.WriteLine($"Hello {friend.FirstName}, {friend.Address.Country} from Finland");
-            }
         }
         public static void HelloGavle(Friend friend)
         {
-            if (friend.Address.City == "Gavle")
-            {
-                Console.WriteLine($"Hello {friend.FirstName}, {friend.Address.City} from Gavle");
-            }
         }
         public static void HelloScandinavia(Friend friend)
         {
-            if (friend.Address.Country != "Finland")
-            {
-                Console.WriteLine($"Hello {friend.FirstName}, {friend.Address.Country} from Scandinavia");
-            }
         }
 
 

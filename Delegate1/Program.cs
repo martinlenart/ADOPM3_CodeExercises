@@ -74,7 +74,7 @@ namespace Delegate1
 //1.  Explore Array.ForEach and write a delegate that prints numbers to the console using Array.ForEach()
 //2.  Explore Array.ForEach and write a delegate that prints cities to the console using Array.ForEach()
 //3.  Use Generics <T> to write one delegate that prints T[] to the console using Array.ForEach()
-//4.  Print out both lists using the Method from 6.
+//4.  Print out both lists using the Method from 3.
 
 //Delegates II
 //5.  Explore Array.FindAll() and write a delegate returns an int[] of all even numbers.
