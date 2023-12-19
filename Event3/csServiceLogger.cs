@@ -10,24 +10,19 @@ namespace ADOPM3_02_18a
 	public class csServiceLogger
 	{
 		public List<csLogEntry> CodeLog = new List<csLogEntry>();
-		public csServiceLogger(csFactoryMontor fm)
+
+
+		public csServiceLogger(csFactoryAlarm fa)
 		{
-			fm.AlarmStatus += LogACode;
+			fa.AlarmDetail += LogACode;
 		}
 
-		void LogACode(int StatusCode)
+		void LogACode(int StatusCode, string Message)
 		{
 			CodeLog.Add(new csLogEntry()
 				{
 					StatusCode = StatusCode,
-					Message = (StatusCode) switch
-					{
-						0 => $"All Good",
-						1 => $"Easy Level",
-						2 => $"Moderate Level",
-						3 => $"Critical Level",
-						_ => $"Unknown Level"
-					}
+					Message = Message
 				}
 			);
 		}

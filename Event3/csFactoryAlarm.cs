@@ -3,7 +3,10 @@ namespace ADOPM3_02_18a
 {
 	public class csFactoryAlarm
 	{
-		public csFactoryAlarm(csFactoryMontor fm)
+        public Action<int, string> AlarmDetail { get; set; } = null;
+
+
+        public csFactoryAlarm(csFactoryMontor fm)
 		{
             fm.AlarmStatus = AlarmResponseSMS;
 
@@ -14,6 +17,9 @@ namespace ADOPM3_02_18a
         {
             //Kod till att skicka SMS
             Console.WriteLine(theResponse("SMS Alarm", priority));
+
+            //Fire a new event
+            AlarmDetail?.Invoke(priority, theResponse("SMS Alarm", priority));
         }
 
         static string theResponse(string Company, int priority) =>

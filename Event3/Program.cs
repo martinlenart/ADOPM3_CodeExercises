@@ -10,7 +10,10 @@ class Program
         var fm = new csFactoryMontor();
         var fa = new csFactoryAlarm(fm);
         var sm = new csServiceMan(fm);
-        var sl = new csServiceLogger(fm);
+
+
+
+        var sl = new csServiceLogger(fa);
 
 
         fm.StatusCode = 0;
