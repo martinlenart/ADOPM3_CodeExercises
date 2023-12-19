@@ -45,6 +45,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Streams1", "Streams1\Stream
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Serialize1", "Serialize1\Serialize1.csproj", "{C39E744F-A56D-4162-A03D-0D467FB78007}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Event3", "Event3\Event3.csproj", "{935A7037-C1D6-4CA1-9B01-DB9DE336DCF8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -135,6 +137,10 @@ Global
 		{C39E744F-A56D-4162-A03D-0D467FB78007}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C39E744F-A56D-4162-A03D-0D467FB78007}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C39E744F-A56D-4162-A03D-0D467FB78007}.Release|Any CPU.Build.0 = Release|Any CPU
+		{935A7037-C1D6-4CA1-9B01-DB9DE336DCF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{935A7037-C1D6-4CA1-9B01-DB9DE336DCF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{935A7037-C1D6-4CA1-9B01-DB9DE336DCF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{935A7037-C1D6-4CA1-9B01-DB9DE336DCF8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

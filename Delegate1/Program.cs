@@ -21,20 +21,56 @@ namespace Delegate1
                 cities[i] = names[rnd.Next(0, names.Length)].Trim();
             }
 
-            WriteLists(numbers, cities);
+            //WriteLists(numbers, cities);
             #endregion
 
             #region Exercises 1-4
             Console.WriteLine("Delegates I Exercises");
-            Array.ForEach(numbers, WriteInt);
+            Array.ForEach<int>(numbers, Write<int>);
+            Array.ForEach<string>(cities, Write<string>);
+
+            Array.ForEach(numbers, Write);
+            Array.ForEach(cities, Write);
             #endregion
 
             #region Exercises 5-6
             Console.WriteLine("\nDelegates II Exercises");
+
+
+            var evenNumbers = Array.FindAll(numbers, i => i % 2 == 0);
+            Array.ForEach(evenNumbers, i =>
+            {
+                Console.WriteLine($"{i,-20}");
+            });
             #endregion
 
             #region Exercises 7-8
             Console.WriteLine("\nDelegates III Exercises");
+
+            Console.WriteLine("Over 500");
+            var MaxVal = 500;
+
+            var largeNumbers = Array.FindAll(numbers, i => i > MaxVal);
+            Array.ForEach(largeNumbers, i =>
+            {
+                Console.WriteLine($"{i,-20}");
+            });
+
+            Console.WriteLine("Over 300");
+            MaxVal = 300;
+
+            largeNumbers = Array.FindAll(numbers, i => i > MaxVal);
+            Array.ForEach(largeNumbers, i =>
+            {
+                Console.WriteLine($"{i,-20}");
+            });
+
+
+            int sum = 0;
+            Array.ForEach(largeNumbers, i => sum += i);
+            Console.WriteLine(sum);
+
+
             #endregion
         }
 
@@ -58,12 +94,30 @@ namespace Delegate1
         {
             Console.Write($"{i,-8}");
         }
+
+        static void WriteString(string i)
+        {
+            Console.Write($"{i,-8}");
+        }
+
+        static void Write<T>(T i)
+        {
+            Console.WriteLine($"{i,-20}");
+        }
+
         #endregion
 
         #region Exercises 5-6
+        static bool Even (int i)
+        {
+            return i % 2 == 0;
+        }
+
         #endregion
 
         #region Exercises 7-8
+
+        static bool FindLarge(int i) => i > 500;
         #endregion
 
     }
