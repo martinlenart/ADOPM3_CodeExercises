@@ -10,8 +10,7 @@ namespace ADOPM3_02_18a
 		{
 			//kod to check the factory floor if any machine signals an error
 			//..
-            AlarmStatus?.Invoke(StatusCode);
-
+			AlarmStatus?.Invoke(StatusCode);
 			return StatusCode == 0;
 		}
 		public csFactoryMontor()
