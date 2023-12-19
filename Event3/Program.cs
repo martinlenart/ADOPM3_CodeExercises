@@ -10,6 +10,7 @@ class Program
         var fm = new csFactoryMontor();
         var fa = new csFactoryAlarm(fm);
         var sm = new csServiceMan(fm);
+        var sl = new csServiceLogger(fm);
 
 
         fm.StatusCode = 0;
@@ -24,7 +25,13 @@ class Program
         fm.StatusCode = 3;
         fm.CheckStatus();
 
+        Console.WriteLine("\nLogged codes");
+        foreach (var item in sl.CodeLog)
+        {
+            Console.WriteLine(item);
+        }
         Console.WriteLine("\nFactory check complete");
+
     }
 }
 /* Exercises 
