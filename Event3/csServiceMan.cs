@@ -8,7 +8,7 @@ namespace ADOPM3_02_18a
             fm.AlarmStatus += SendServiceMan;
         }
 
-        public void SendServiceMan(int priority)
+        public void SendServiceMan(object sender, int priority)
         {
             if (priority >= 3)
             {

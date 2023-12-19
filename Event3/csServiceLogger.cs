@@ -17,12 +17,12 @@ namespace ADOPM3_02_18a
 			fa.AlarmDetail += LogACode;
 		}
 
-		void LogACode(int StatusCode, string Message)
+		void LogACode(object sender, (int StatusCode, string Message) e)
 		{
 			CodeLog.Add(new csLogEntry()
 				{
-					StatusCode = StatusCode,
-					Message = Message
+					StatusCode = e.StatusCode,
+					Message = e.Message
 				}
 			);
 		}
