@@ -29,5 +29,6 @@ class Program
 }
 /* Exercises 
    1. Write a class ServiceLogger that stores every Factory Alarm which is an error
+   2. Before Factory Check complete, the list of of factory alarams should be written out
 */
 
