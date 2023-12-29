@@ -9,7 +9,7 @@ namespace Linq_Orders
         static void Main(string[] args)
         {
             List<IOrder> OrderList = new List<IOrder>();
-            for (int i = 0; i < 50_000; i++)
+            for (int i = 0; i < 50; i++)
             {
                 OrderList.Add(Order.Factory.CreateWithRandomData());
             }

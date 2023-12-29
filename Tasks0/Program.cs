@@ -7,17 +7,11 @@ namespace Task0
     {
         static void Main(string[] args)
         {
-            string Message = "What a wounderful day!";
             var watch = new Stopwatch();
             watch.Start();
 
-            var t1 = Task.Run(() =>
-            {
-                //Your Code to implement Task t1
-                Console.WriteLine(Message);
-                Task.Delay(2000).Wait();        //Wait 2s (2000ms)
-                Console.WriteLine(Message);
-            });
+            //Create Task t1
+            //Your Code
 
             //Create Task t2
             //Your Code
@@ -25,7 +19,6 @@ namespace Task0
             //Create Task t3
             //Your Code
 
-            Task.WaitAll(t1);
             //Task.WaitAll(t1, t2, t3);
 
             watch.Stop();
