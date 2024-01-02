@@ -59,7 +59,7 @@ namespace ThreadSafeData
 /*  Exercise
     1. Make class Vehicle Thread safe using lock(...)
     2.  - Have task t1 write 1000 times "ABC 123", "Kalle Anka" to myCar
-        - Have task t2 write 1000 times "ABC 123", "HKL 556", "Musse Pigg"
+        - Have task t2 write 1000 times "HKL 556", "Musse Pigg" to myCar
         - Verify data consistency
         - Discuss in the group what is data consistency in case of class Vehicle. Is your code living up to it?
 */
